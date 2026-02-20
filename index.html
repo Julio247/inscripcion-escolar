@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inscripción Primaria</title>
+    <title>Inscripción de Educación Primaria</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <header>
+        <header id="mainHeader">
             <h1>Prosecución de Educación Primaria</h1>
-            <p>Formulario de Registro Académico</p>
+            <p>Formulario de Registro Oficial</p>
         </header>
 
         <form id="registroForm">
+            
             <fieldset>
                 <legend>Información Académica</legend>
                 <div class="row">
@@ -37,13 +38,13 @@
                     </div>
                     <div class="input-group">
                         <label>Año Escolar:</label>
-                        <input type="text" id="anioEscolar" required>
+                        <input type="text" id="anioEscolar" placeholder="Ej: 2025-2026" required>
                     </div>
                 </div>
             </fieldset>
 
             <fieldset>
-                <legend>Datos del Estudiante</legend>
+                <legend>Datos Personales del Estudiante</legend>
                 <div class="row">
                     <div class="input-group">
                         <label>Nombres:</label>
@@ -56,7 +57,7 @@
                 </div>
                 <div class="row">
                     <div class="input-group">
-                        <label>ID / Cédula:</label>
+                        <label>Cédula / ID:</label>
                         <input type="text" id="id_estudiante">
                     </div>
                     <div class="input-group">
@@ -93,15 +94,15 @@
                 <legend>Tallas y Medidas</legend>
                 <div class="row">
                     <div class="input-group">
-                        <label>Camisa:</label>
+                        <label>Talla Camisa:</label>
                         <input type="text" id="tallaCamisa">
                     </div>
                     <div class="input-group">
-                        <label>Pantalón:</label>
+                        <label>Talla Pantalón:</label>
                         <input type="text" id="tallaPantalon">
                     </div>
                     <div class="input-group">
-                        <label>Zapato:</label>
+                        <label>Talla Zapato:</label>
                         <input type="text" id="tallaZapato">
                     </div>
                 </div>
@@ -117,58 +118,21 @@
                 </div>
             </fieldset>
 
-            <button type="submit" id="btnEnviar">Enviar Registro</button>
+            <button type="submit" id="btnEnviar">REGISTRAR INSCRIPCIÓN</button>
         </form>
-        <div id="mensajeExito" class="hidden">¡Registro enviado correctamente!</div>
-        <div id="pantallaExito" class="hidden success-overlay">
-            <div class="success-content">
-                <div class="icon-circle">✓</div>
-                <h2>¡Registro Completado!</h2>
-                <p>La planilla de inscripción ha sido enviada exitosamente a nuestra base de datos.</p>
-                <p>Ya puedes cerrar esta ventana o realizar un nuevo registro.</p>
-                <button onclick="window.location.reload()" class="btn-nuevo">Hacer otro registro</button>
+
+        <div id="pantallaExito" class="hidden">
+            <div class="success-card">
+                <div class="check-icon">✓</div>
+                <h2>¡Registro Efectivo!</h2>
+                <p>La planilla de inscripción se ha procesado correctamente.</p>
+                <button onclick="window.location.reload()" class="btn-reset">Nuevo Registro</button>
             </div>
         </div>
-        <input type="text" id="grado" required>
-<fieldset>
-                <legend>Información Adicional</legend>
-                <div class="row">
-                    <div class="input-group">
-                        <label>Grado:</label>
-                        <input type="text" id="grado" required>
-                    </div>
-                    <div class="input-group">
-                        <label>Sección:</label>
-                        <input type="text" id="seccion" required>
-                    </div>
-                    <div class="input-group">
-                        <label>Literal:</label>
-                        <input type="text" id="literal">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-group">
-                        <label>Fecha de Inscripción:</label>
-                        <input type="date" id="fechaInsc" required>
-                    </div>
-                    <div class="input-group">
-                        <label>Año Escolar:</label>
-                        <input type="text" id="anioEscolar" required>
-                    </div>
-                </div>
-                <div class="row">
-                   <div class="input-group full-width">
-                        <label>Dirección de Habitación:</label>
-                        <input type="text" id="direccion" required>
-                    </div>
-                </div>
-            </fieldset>
-
-            <button type="submit" id="btnEnviar">Enviar Registro</button>
-        </form>
     </div>
+
     <script src="script.js"></script>
 </body>
-
 </html>
+
 
