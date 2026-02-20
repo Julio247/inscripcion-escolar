@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscripción Primaria</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Prosecución de Educación Primaria</h1>
+            <p>Formulario de Registro Académico</p>
+        </header>
+
+        <form id="registroForm">
+            <fieldset>
+                <legend>Información Académica</legend>
+                <div class="row">
+                    <div class="input-group">
+                        <label>Grado:</label>
+                        <input type="text" id="grado" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Sección:</label>
+                        <input type="text" id="seccion" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Literal:</label>
+                        <input type="text" id="literal">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-group">
+                        <label>Fecha de Inscripción:</label>
+                        <input type="date" id="fechaInsc" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Año Escolar:</label>
+                        <input type="text" id="anioEscolar" required>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Datos del Estudiante</legend>
+                <div class="row">
+                    <div class="input-group">
+                        <label>Nombres:</label>
+                        <input type="text" id="nombres" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Apellidos:</label>
+                        <input type="text" id="apellidos" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-group">
+                        <label>ID / Cédula:</label>
+                        <input type="text" id="id_estudiante">
+                    </div>
+                    <div class="input-group">
+                        <label>Edad:</label>
+                        <input type="number" id="edad" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Sexo:</label>
+                        <select id="sexo">
+                            <option value="M">Masculino</option>
+                            <option value="F">Femenino</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-group">
+                        <label>Lugar de Nacimiento:</label>
+                        <input type="text" id="lugarNac" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Nacionalidad:</label>
+                        <input type="text" id="nacionalidad" placeholder="V / E" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-group full-width">
+                        <label>Dirección de Habitación:</label>
+                        <input type="text" id="direccion" required>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Tallas y Medidas</legend>
+                <div class="row">
+                    <div class="input-group">
+                        <label>Camisa:</label>
+                        <input type="text" id="tallaCamisa">
+                    </div>
+                    <div class="input-group">
+                        <label>Pantalón:</label>
+                        <input type="text" id="tallaPantalon">
+                    </div>
+                    <div class="input-group">
+                        <label>Zapato:</label>
+                        <input type="text" id="tallaZapato">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-group">
+                        <label>Peso (kg):</label>
+                        <input type="text" id="peso">
+                    </div>
+                    <div class="input-group">
+                        <label>Estatura (cm):</label>
+                        <input type="text" id="estatura">
+                    </div>
+                </div>
+            </fieldset>
+
+            <button type="submit" id="btnEnviar">Enviar Registro</button>
+        </form>
+        <div id="mensajeExito" class="hidden">¡Registro enviado correctamente!</div>
+        <div id="pantallaExito" class="hidden success-overlay">
+            <div class="success-content">
+                <div class="icon-circle">✓</div>
+                <h2>¡Registro Completado!</h2>
+                <p>La planilla de inscripción ha sido enviada exitosamente a nuestra base de datos.</p>
+                <p>Ya puedes cerrar esta ventana o realizar un nuevo registro.</p>
+                <button onclick="window.location.reload()" class="btn-nuevo">Hacer otro registro</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

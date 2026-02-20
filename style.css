@@ -1,0 +1,134 @@
+:root {
+    --azul: #0d47a1;
+    --gris: #f8f9fa;
+    --borde: #dee2e6;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #e9ecef;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+header {
+    text-align: center;
+    border-bottom: 3px solid var(--azul);
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+}
+
+h1 { color: #212529; font-size: 1.6rem; text-transform: uppercase; }
+
+fieldset {
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+    margin-bottom: 20px;
+    padding: 20px;
+    background: var(--gris);
+}
+
+legend {
+    font-weight: bold;
+    color: white;
+    background: var(--azul);
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+.row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.input-group {
+    flex: 1;
+    min-width: 180px;
+    display: flex;
+    flex-direction: column;
+}
+
+.full-width { flex: 100%; }
+
+label { font-size: 0.85rem; font-weight: 600; margin-bottom: 5px; color: #495057; }
+
+input, select {
+    padding: 10px;
+    border: 1px solid var(--borde);
+    border-radius: 4px;
+    font-size: 0.95rem;
+}
+
+input:focus { border-color: var(--azul); outline: none; }
+
+button {
+    width: 100%;
+    padding: 15px;
+    background: var(--azul);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover { background: #0a3a82; }
+
+.hidden { display: none; }
+#mensajeExito {
+    margin-top: 20px;
+    padding: 15px;
+    background: #d4edda;
+    color: #155724;
+    text-align: center;
+    border-radius: 4px;
+}
+
+/* Pantalla de Éxito Estilizada */
+.success-overlay {
+    text-align: center;
+    padding: 40px 20px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.success-content h2 {
+    color: #155724;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    background: #28a745;
+    color: white;
+    font-size: 50px;
+    line-height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+}
+
+.btn-nuevo {
+    margin-top: 25px;
+    background: #6c757d !important;
+    width: auto !important;
+    padding: 10px 30px !important;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
