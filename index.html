@@ -130,18 +130,45 @@
             </div>
         </div>
         <input type="text" id="grado" required>
-<input type="text" id="seccion" required>
-<input type="text" id="literal">
-<input type="date" id="fechaInsc" required>
-<input type="text" id="anioEscolar" required>
+<fieldset>
+                <legend>Información Adicional</legend>
+                <div class="row">
+                    <div class="input-group">
+                        <label>Grado:</label>
+                        <input type="text" id="grado" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Sección:</label>
+                        <input type="text" id="seccion" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Literal:</label>
+                        <input type="text" id="literal">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-group">
+                        <label>Fecha de Inscripción:</label>
+                        <input type="date" id="fechaInsc" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Año Escolar:</label>
+                        <input type="text" id="anioEscolar" required>
+                    </div>
+                </div>
+                <div class="row">
+                   <div class="input-group full-width">
+                        <label>Dirección de Habitación:</label>
+                        <input type="text" id="direccion" required>
+                    </div>
+                </div>
+            </fieldset>
 
-<input type="text" id="nombres" required>
-<input type="text" id="apellidos" required>
-<input type="text" id="id_estudiante">
-<input type="number" id="edad" required>
-<input type="text" id="direccion" required>
+            <button type="submit" id="btnEnviar">Enviar Registro</button>
+        </form>
     </div>
     <script src="script.js"></script>
 </body>
 
 </html>
+
