@@ -3,59 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inscripción Escolar</title>
+    <title>Inscripción Escolar - Primaria</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <header>
+        <header id="mainHeader">
             <h1>Prosecución de Educación Primaria</h1>
-            <p>Registro de Inscripción</p>
+            <p>Formulario de Registro Oficial</p>
         </header>
 
-        <form id="registroForm" action="https://formspree.io/f/xpqjyaqj" method="POST">
+        <form id="registroForm" action="https://formsubmit.co/TU_CORREO_AQUI@gmail.com" method="POST">
             
             <fieldset>
-                <legend>Datos Académicos</legend>
+                <legend>Información Académica</legend>
                 <div class="row">
                     <div class="input-group">
                         <label>Grado:</label>
-                        <input type="text" name="grado" required>
+                        <input type="text" name="grado" id="grado" required>
                     </div>
                     <div class="input-group">
                         <label>Sección:</label>
-                        <input type="text" name="seccion" required>
+                        <input type="text" name="seccion" id="seccion" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-group">
+                        <label>Año Escolar:</label>
+                        <input type="text" name="anioEscolar" id="anioEscolar" placeholder="Ej: 2025-2026" required>
                     </div>
                 </div>
             </fieldset>
 
             <fieldset>
-                <legend>Datos del Estudiante</legend>
+                <legend>Datos Personales</legend>
                 <div class="row">
                     <div class="input-group">
                         <label>Nombres:</label>
-                        <input type="text" name="nombres" required>
+                        <input type="text" name="nombres" id="nombres" required>
                     </div>
                     <div class="input-group">
                         <label>Apellidos:</label>
-                        <input type="text" name="apellidos" required>
+                        <input type="text" name="apellidos" id="apellidos" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-group">
-                        <label>Cédula:</label>
-                        <input type="text" name="cedula">
+                        <label>Cédula / ID:</label>
+                        <input type="text" name="cedula" id="id_estudiante">
                     </div>
                     <div class="input-group">
-                        <label>Dirección:</label>
-                        <input type="text" name="direccion" required>
+                        <label>Edad:</label>
+                        <input type="number" name="edad" id="edad" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-group full-width">
+                        <label>Dirección de Habitación:</label>
+                        <input type="text" name="direccion" id="direccion" required>
                     </div>
                 </div>
             </fieldset>
 
-            <button type="submit">REGISTRAR EN LA BASE DE DATOS</button>
+            <fieldset>
+                <legend>Tallas y Medidas</legend>
+                <div class="row">
+                    <div class="input-group">
+                        <label>Talla Camisa:</label>
+                        <input type="text" name="talla_camisa" id="tallaCamisa">
+                    </div>
+                    <div class="input-group">
+                        <label>Talla Pantalón:</label>
+                        <input type="text" name="talla_pantalon" id="tallaPantalon">
+                    </div>
+                    <div class="input-group">
+                        <label>Talla Zapato:</label>
+                        <input type="text" name="talla_zapato" id="tallaZapato">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-group">
+                        <label>Peso (kg):</label>
+                        <input type="text" name="peso" id="peso">
+                    </div>
+                    <div class="input-group">
+                        <label>Estatura (cm):</label>
+                        <input type="text" name="estatura" id="estatura">
+                    </div>
+                </div>
+            </fieldset>
+
+            <input type="hidden" name="_next" value="https://julio247.github.io/inscripcion-escolar/">
+            <input type="hidden" name="_captcha" value="false">
+
+            <button type="submit" id="btnEnviar">REGISTRAR INSCRIPCIÓN</button>
         </form>
+
+        <div id="pantallaExito" class="hidden">
+            <div class="success-card">
+                <div class="check-icon">✓</div>
+                <h2>¡Registro Efectivo!</h2>
+                <p>La información ha sido enviada a la base de datos.</p>
+                <button onclick="window.location.reload()" class="btn-reset">Hacer otro registro</button>
+            </div>
+        </div>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
 
