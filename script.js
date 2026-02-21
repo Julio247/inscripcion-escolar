@@ -1,41 +1,50 @@
-document.getElementById('registroForm').addEventListener('submit', function(e) {
-    e.preventDefault();
+// Esperamos a que el documento esté listo
+document.addEventListener('DOMContentLoaded', () => {
+    const formulario = document.getElementById('registroForm');
 
-    const G_URL = 'https://docs.google.com/forms/d/e/TU_ID_AQUÍ/formResponse';
-    const formData = new FormData();
-    
-    // Mapeo básico de campos
-    formData.append('entry.111', document.getElementById('grado').value);
-    formData.append('entry.222', document.getElementById('seccion').value);
-    formData.append('entry.333', document.getElementById('nombres').value);
-    formData.append('entry.444', document.getElementById('apellidos').value);
-    formData.append('entry.555', document.getElementById('edad').value);
-    formData.append('entry.666', document.getElementById('direccion').value);
+    // Escuchamos el evento de envío
+    formulario.addEventListener('submit', async (e) => {
+        e.preventDefault(); // Evitamos que la página se recargue
 
-    fetch(G_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        body: formData
-    }).then(() => {
-        document.getElementById('mensajeExito').classList.remove('hidden');
-        this.reset();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }).catch(err => console.error("Error al enviar", err));
-});
+        // Creamos un objeto con los datos del formulario
+        const datos = new FormData(formulario);
+        
+        // Convertimos los datos a un objeto simple para poder manipularlos si fuera necesario
+        const dataObjeto = Object.fromEntries(datos.entries());
+        console.log("Datos capturados:", dataObjeto);
 
-fetch(G_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        body: formData
-    }).then(() => {
-        // OCULTAR EL FORMULARIO Y EL HEADER
-        document.getElementById('registroForm').classList.add('hidden');
-        document.querySelector('header').classList.add('hidden');
+        try {
+            // Enviamos los datos usando la API Fetch (Alto Nivel)
+            const respuesta = await fetch(formulario.action, {
+                method: 'POST',
+                body: datos,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
 
-        // MOSTRAR LA PANTALLA DE ÉXITO
-        document.getElementById('pantallaExito').classList.remove('hidden');
+            if (respuesta.ok) {
+                // Si la respuesta es correcta, ejecutamos la lógica de éxito
+                mostrarExito();
+                formulario.reset();
+            } else {
+                throw new Error('Error en la respuesta del servidor');
+            }
+        } catch (error) {
+            console.error("Error detectado:", error);
+            alert("Ocurrió un error al procesar el registro.");
+        }
+    });
+
+    function mostrarExito() {
+        // Manipulación del DOM para feedback visual
+        const header = document.querySelector('header');
+        const exitoDiv = document.getElementById('pantallaExito');
+        
+        formulario.classList.add('hidden');
+        if(header) header.classList.add('hidden');
+        exitoDiv.classList.remove('hidden');
         
         window.scrollTo({ top: 0, behavior: 'smooth' });
-    }).catch(err => {
-        alert("Error al enviar. Intente de nuevo.");
-    });
+    }
+});
