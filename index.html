@@ -3,136 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inscripción de Educación Primaria</title>
+    <title>Inscripción Escolar</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <header id="mainHeader">
+        <header>
             <h1>Prosecución de Educación Primaria</h1>
-            <p>Formulario de Registro Oficial</p>
+            <p>Registro de Inscripción</p>
         </header>
 
-        <form id="registroForm">
+        <form action="https://formspree.io/f/TU_ID_AQUI" method="POST">
             
             <fieldset>
-                <legend>Información Académica</legend>
+                <legend>Datos Académicos</legend>
                 <div class="row">
                     <div class="input-group">
                         <label>Grado:</label>
-                        <input type="text" id="grado" required>
+                        <input type="text" name="grado" required>
                     </div>
                     <div class="input-group">
                         <label>Sección:</label>
-                        <input type="text" id="seccion" required>
-                    </div>
-                    <div class="input-group">
-                        <label>Literal:</label>
-                        <input type="text" id="literal">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-group">
-                        <label>Fecha de Inscripción:</label>
-                        <input type="date" id="fechaInsc" required>
-                    </div>
-                    <div class="input-group">
-                        <label>Año Escolar:</label>
-                        <input type="text" id="anioEscolar" placeholder="Ej: 2025-2026" required>
+                        <input type="text" name="seccion" required>
                     </div>
                 </div>
             </fieldset>
 
             <fieldset>
-                <legend>Datos Personales del Estudiante</legend>
+                <legend>Datos del Estudiante</legend>
                 <div class="row">
                     <div class="input-group">
                         <label>Nombres:</label>
-                        <input type="text" id="nombres" required>
+                        <input type="text" name="nombres" required>
                     </div>
                     <div class="input-group">
                         <label>Apellidos:</label>
-                        <input type="text" id="apellidos" required>
+                        <input type="text" name="apellidos" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-group">
-                        <label>Cédula / ID:</label>
-                        <input type="text" id="id_estudiante">
+                        <label>Cédula:</label>
+                        <input type="text" name="cedula">
                     </div>
                     <div class="input-group">
-                        <label>Edad:</label>
-                        <input type="number" id="edad" required>
-                    </div>
-                    <div class="input-group">
-                        <label>Sexo:</label>
-                        <select id="sexo">
-                            <option value="M">Masculino</option>
-                            <option value="F">Femenino</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-group">
-                        <label>Lugar de Nacimiento:</label>
-                        <input type="text" id="lugarNac" required>
-                    </div>
-                    <div class="input-group">
-                        <label>Nacionalidad:</label>
-                        <input type="text" id="nacionalidad" placeholder="V / E" required>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-group full-width">
-                        <label>Dirección de Habitación:</label>
-                        <input type="text" id="direccion" required>
+                        <label>Dirección:</label>
+                        <input type="text" name="direccion" required>
                     </div>
                 </div>
             </fieldset>
 
-            <fieldset>
-                <legend>Tallas y Medidas</legend>
-                <div class="row">
-                    <div class="input-group">
-                        <label>Talla Camisa:</label>
-                        <input type="text" id="tallaCamisa">
-                    </div>
-                    <div class="input-group">
-                        <label>Talla Pantalón:</label>
-                        <input type="text" id="tallaPantalon">
-                    </div>
-                    <div class="input-group">
-                        <label>Talla Zapato:</label>
-                        <input type="text" id="tallaZapato">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-group">
-                        <label>Peso (kg):</label>
-                        <input type="text" id="peso">
-                    </div>
-                    <div class="input-group">
-                        <label>Estatura (cm):</label>
-                        <input type="text" id="estatura">
-                    </div>
-                </div>
-            </fieldset>
-
-            <button type="submit" id="btnEnviar">REGISTRAR INSCRIPCIÓN</button>
+            <button type="submit">REGISTRAR EN LA BASE DE DATOS</button>
         </form>
-
-        <div id="pantallaExito" class="hidden">
-            <div class="success-card">
-                <div class="check-icon">✓</div>
-                <h2>¡Registro Efectivo!</h2>
-                <p>La planilla de inscripción se ha procesado correctamente.</p>
-                <button onclick="window.location.reload()" class="btn-reset">Nuevo Registro</button>
-            </div>
-        </div>
     </div>
-
-    <script src="script.js"></script>
 </body>
 </html>
-
-
