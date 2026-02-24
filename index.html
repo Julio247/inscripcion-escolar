@@ -13,7 +13,7 @@
             <p>Formulario de Registro Oficial</p>
         </header>
 
-      <form id="registroForm" action="https://formsubmit.co/loshhidalgo4@gmail.com" method="POST">
+        <form id="registroForm" action="https://formsubmit.co/loshhidalgo4@gmail.com" method="POST">
             
             <fieldset>
                 <legend>Información Académica</legend>
@@ -52,6 +52,12 @@
                         <label>Cédula / ID:</label>
                         <input type="text" name="cedula" id="id_estudiante">
                     </div>
+                    <div class="input-group">
+                        <label>Fecha de Nacimiento:</label>
+                        <input type="date" name="fecha_nacimiento" id="fechaNacimiento" required>
+                    </div>
+                </div>
+                <div class="row">
                     <div class="input-group">
                         <label>Edad:</label>
                         <input type="number" name="edad" id="edad" required>
@@ -93,8 +99,8 @@
                 </div>
             </fieldset>
 
-            <input type="hidden" name="_next" value="https://julio247.github.io/inscripcion-escolar/">
             <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
 
             <button type="submit" id="btnEnviar">REGISTRAR INSCRIPCIÓN</button>
         </form>
@@ -102,9 +108,9 @@
         <div id="pantallaExito" class="hidden">
             <div class="success-card">
                 <div class="check-icon">✓</div>
-                <h2>¡Registro Efectivo!</h2>
-                <p>La información ha sido enviada a la base de datos.</p>
-                <button onclick="window.location.reload()" class="btn-reset">Hacer otro registro</button>
+                <h2>¡Registro Completado!</h2>
+                <p>La información ha sido enviada exitosamente a la base de datos escolar.</p>
+                <p style="margin-top: 20px; color: #666;">Ya puede cerrar esta pestaña.</p>
             </div>
         </div>
     </div>
@@ -112,6 +118,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
-
-
