@@ -1,20 +1,20 @@
-// Esperamos a que el documento esté listo
 document.addEventListener('DOMContentLoaded', () => {
     const formulario = document.getElementById('registroForm');
+    const pantallaExito = document.getElementById('pantallaExito');
+    const header = document.getElementById('mainHeader');
 
-    // Escuchamos el evento de envío
     formulario.addEventListener('submit', async (e) => {
-        e.preventDefault(); // Evitamos que la página se recargue
-
-        // Creamos un objeto con los datos del formulario
-        const datos = new FormData(formulario);
+        e.preventDefault();
         
-        // Convertimos los datos a un objeto simple para poder manipularlos si fuera necesario
-        const dataObjeto = Object.fromEntries(datos.entries());
-        console.log("Datos capturados:", dataObjeto);
+        // Cambio visual inmediato para feedback
+        const btn = document.getElementById('btnEnviar');
+        btn.textContent = "Procesando...";
+        btn.disabled = true;
+
+        const datos = new FormData(formulario);
 
         try {
-            // Enviamos los datos usando la API Fetch (Alto Nivel)
+            // Petición de alto nivel usando Fetch API y await
             const respuesta = await fetch(formulario.action, {
                 method: 'POST',
                 body: datos,
@@ -24,27 +24,22 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             if (respuesta.ok) {
-                // Si la respuesta es correcta, ejecutamos la lógica de éxito
-                mostrarExito();
-                formulario.reset();
+                // Ocultamos el formulario y el header definitivamente
+                formulario.style.display = 'none';
+                if(header) header.style.display = 'none';
+                
+                // Mostramos la pantalla de éxito
+                pantallaExito.classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             } else {
-                throw new Error('Error en la respuesta del servidor');
+                throw new Error('Error en el servidor');
             }
         } catch (error) {
-            console.error("Error detectado:", error);
-            alert("Ocurrió un error al procesar el registro.");
+            console.error("Error al enviar:", error);
+            alert("Hubo un problema. Intente nuevamente.");
+            btn.textContent = "REGISTRAR INSCRIPCIÓN";
+            btn.disabled = false;
         }
     });
-
-    function mostrarExito() {
-        // Manipulación del DOM para feedback visual
-        const header = document.querySelector('header');
-        const exitoDiv = document.getElementById('pantallaExito');
-        
-        formulario.classList.add('hidden');
-        if(header) header.classList.add('hidden');
-        exitoDiv.classList.remove('hidden');
-        
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
 });
+
