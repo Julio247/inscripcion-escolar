@@ -3,43 +3,51 @@ document.addEventListener('DOMContentLoaded', () => {
     const pantallaExito = document.getElementById('pantallaExito');
     const header = document.getElementById('mainHeader');
 
+    // FUNCIÓN PARA OCULTAR TODO Y MOSTRAR ÉXITO
+    const mostrarExitoBloqueado = () => {
+        if(formulario) formulario.style.display = 'none';
+        if(header) header.style.display = 'none';
+        if(pantallaExito) pantallaExito.classList.remove('hidden');
+    };
+
+    // 1. CHEQUEO DE "ALTO NIVEL" AL CARGAR (BLOQUEO F5)
+    if (localStorage.getItem('estudianteInscrito') === 'true') {
+        mostrarExitoBloqueado();
+    }
+
+    // 2. LÓGICA DE ENVÍO
     formulario.addEventListener('submit', async (e) => {
         e.preventDefault();
         
-        // Cambio visual inmediato para feedback
         const btn = document.getElementById('btnEnviar');
-        btn.textContent = "Procesando...";
+        btn.textContent = "Guardando en Base de Datos...";
         btn.disabled = true;
 
         const datos = new FormData(formulario);
 
         try {
-            // Petición de alto nivel usando Fetch API y await
             const respuesta = await fetch(formulario.action, {
                 method: 'POST',
                 body: datos,
-                headers: {
-                    'Accept': 'application/json'
-                }
+                headers: { 'Accept': 'application/json' }
             });
 
             if (respuesta.ok) {
-                // Ocultamos el formulario y el header definitivamente
-                formulario.style.display = 'none';
-                if(header) header.style.display = 'none';
+                // GUARDAR LA MARCA EN EL NAVEGADOR DEL USUARIO
+                localStorage.setItem('estudianteInscrito', 'true');
                 
-                // Mostramos la pantalla de éxito
-                pantallaExito.classList.remove('hidden');
+                // CAMBIAR LA VISTA
+                mostrarExitoBloqueado();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             } else {
-                throw new Error('Error en el servidor');
+                throw new Error('Error');
             }
         } catch (error) {
-            console.error("Error al enviar:", error);
-            alert("Hubo un problema. Intente nuevamente.");
-            btn.textContent = "REGISTRAR INSCRIPCIÓN";
+            alert("No se pudo completar el registro. Intente de nuevo.");
+            btn.textContent = "FINALIZAR E INSCRIBIR";
             btn.disabled = false;
         }
     });
 });
+
 
